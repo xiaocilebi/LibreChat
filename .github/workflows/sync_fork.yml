@@ -25,8 +25,7 @@ jobs:
       run: |
         git remote add upstream https://github.com/danny-avila/LibreChat.git # 替换为上游仓库的URL
         git fetch upstream
-        git checkout main
-        git merge upstream/main --allow-unrelated-histories
-        git push origin main # 推送更新到你的分支
+        git checkout -B main upstream/main # 强制重置主分支到上游仓库的主分支
+        git push -f origin main # 强制推送更新到你的主分支
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
